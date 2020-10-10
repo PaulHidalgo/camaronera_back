@@ -1,5 +1,7 @@
 require('./config/config');
 const express = require('express');
+const mongoose = require('mongoose');
+
 const app = express();
 
 
@@ -10,25 +12,15 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-app.get('/granja', function(req, res) {
-    res.json('Get granja')
-});
-
-app.post('/granja', function(req, res) {
-    let body = req.body;
-
-    res.json({ granja: body })
-});
-
-app.put('/granja/:id', function(req, res) {
-    let id = req.params.id;
+app.use(require('./routes/granja'));
+app.use(require('./routes/usuario'));
 
 
-    res.json({ id })
-});
+mongoose.connect(process.env.URLDB, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }, (err, res) => {
 
-app.delete('/granja', function(req, res) {
-    res.json('Delete granja')
+    if (err) throw err;
+    console.log('Base de datos ONLINE');
+
 });
 
 app.listen(process.env.PORT, () => {
