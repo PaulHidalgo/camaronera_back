@@ -16,10 +16,7 @@ let urlDB;
 if (process.env.NODE_ENV === 'dev') {
     urlDB = 'mongodb://localhost:27017/camaronera';
 } else {
-    urlDB = 'mongodb+srv://admin:admin@cluster0.hqswy.mongodb.net/camaronera'
-        //urlDB = process.env.MONGO_URI;
+    urlDB = urlDB = process.env.MONGO_URI;
 }
-
-//PROD  --------   mongodb+srv://admin:admin@cluster0.hqswy.mongodb.net/camaronera
 
 process.env.URLDB = urlDB;
