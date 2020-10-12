@@ -6,7 +6,7 @@
 
 
 ### Information General
-  - Port configured local 27017
+  - Port configured local: 27017
   - Name database: camaronera
 
 
