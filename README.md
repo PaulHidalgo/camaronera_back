@@ -1,6 +1,8 @@
 # camaronera_back
-## run
-## npm install
-## node server/server
+### RUN
+  - npm install
+  - node server/server
 
-## Using mongodb
+### Run Previously
+  - In Windows and depend of version run mongod for example:
+  - "C:\Program Files\MongoDB\Server\4.4\bin\mongod.exe" --dbpath="c:\data\db"
