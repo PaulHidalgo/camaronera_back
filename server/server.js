@@ -1,6 +1,7 @@
 require('./config/config');
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors')
 
 const app = express();
 
@@ -12,8 +13,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-app.use(require('./routes/granja'));
-app.use(require('./routes/usuario'));
+// Enale all cors requests
+app.use(cors())
+
+//Configuración global de rutas
+app.use(require('./controladores/index'));
 
 
 mongoose.connect(process.env.URLDB, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }, (err, res) => {
